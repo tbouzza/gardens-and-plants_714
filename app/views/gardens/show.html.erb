@@ -1,0 +1,32 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @garden.banner_url %>);">
+
+  <div class="container">
+    <h1><%= @garden.name %></h1>
+  </div>
+
+</div>
+
+<div class="container">
+  <%= link_to new_garden_plant_path(@garden), class: 'btn btn-primary my-3' do %>
+    <i class="fas fa-seedling"></i>
+  <% end %>
+
+
+
+  <div class="cards">
+    <% @garden.plants.each do |plant| %>
+    <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= plant.banner_url %>)">
+      <%= plant.name %>
+
+      <%= link_to 'delete',
+                  plant_path(plant),
+                  method: :delete,
+                  class: 'btn btn-danger position-absolute eraser',
+                  data: { confirm: 'Are you sure ?'}
+      %>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+<%= link_to 'Back', gardens_path %>

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <%= simple_form_for([@garden, @plant]) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :banner_url %>
+
+        <%= f.button :submit, class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
