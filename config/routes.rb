@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     resources :plants, only: [:new, :create]
   end
 
-  resources :plants, only: :destroy
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :plants, only: :destroy do
+    # /plants/:plant_id/plant_tags/new
+    resources :plant_tags, only: [:new, :create]
+  end
+
 end
